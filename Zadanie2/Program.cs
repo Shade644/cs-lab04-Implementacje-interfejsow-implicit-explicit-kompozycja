@@ -1,14 +1,13 @@
 ﻿using System;
 using ver1;
-using Zadanie2;
 
-namespace zadanie
+namespace Zadanie1
 {
     class Program
     {
         static void Main()
         {
-            var xerox = new MultiFunctionalDevice();
+            var xerox = new Copier();
             xerox.PowerOn();
             IDocument doc1 = new PDFDocument("aaa.pdf");
             xerox.Print(in doc1);
@@ -21,12 +20,7 @@ namespace zadanie
             System.Console.WriteLine(xerox.PrintCounter);
             System.Console.WriteLine(xerox.ScanCounter);
 
-            xerox.ScanPrintFax();
-            System.Console.WriteLine(xerox.Counter);
-            System.Console.WriteLine(xerox.ScanCounter);
-            System.Console.WriteLine(xerox.PrintCounter);
-            
-
+            xerox.PowerOff();
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
-using Zadanie2;
+using Zadanie3;
 
-namespace ver2
+namespace ver3
 {
     public interface IDevice
     {
@@ -32,6 +32,7 @@ namespace ver2
             Console.WriteLine("Device is on ...");  
         }
 
+
         public int Counter { get; private set; } = 0;
     }
 
@@ -54,6 +55,11 @@ namespace ver2
     {
         void Send(in IDocument document);
     }
-
+    public interface ICopier : IDevice, IPrinter, IScanner
+    {
+        int PrintCounter { get; }
+        int ScanCounter { get; }
+        void Copier();
+    }
 
 }

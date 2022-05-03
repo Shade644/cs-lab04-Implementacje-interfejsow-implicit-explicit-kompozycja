@@ -19,6 +19,8 @@ namespace Zadanie1
             System.Console.WriteLine(xerox.Counter);
             System.Console.WriteLine(xerox.PrintCounter);
             System.Console.WriteLine(xerox.ScanCounter);
+
+            xerox.PowerOff();
         }
     }
 }

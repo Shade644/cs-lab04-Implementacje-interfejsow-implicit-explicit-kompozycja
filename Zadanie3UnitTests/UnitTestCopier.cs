@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ver1;
+using ver3;
 using System;
 using System.IO;
-using Zadanie1;
+using Zadanie3;
 
 namespace ver1UnitTests
 {

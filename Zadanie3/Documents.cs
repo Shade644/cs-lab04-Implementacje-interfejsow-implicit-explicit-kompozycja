@@ -1,7 +1,7 @@
 using System;
-using Zadanie2;
+using Zadanie3;
 
-namespace ver2
+namespace Zadanie3
 {
     public interface IDocument
     {

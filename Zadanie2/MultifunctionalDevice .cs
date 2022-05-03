@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ver1;
+using ver2;
 
-namespace Zadanie1
+namespace Zadanie2
 {
     public class Copier : BaseDevice, IPrinter, IScanner
     {
@@ -11,16 +11,14 @@ namespace Zadanie1
         public int ScanCounter { get; set; }
         public new int Counter { get; set; }
 
-       
-        public void Print(in IDocument document)
+        public void Print(in IDocument doc)
         {
-            if(GetState() == IDevice.State.on)
+            if (GetState() == IDevice.State.on)
             {
-                Console.WriteLine($"{DateTime.Now:dd.MM.yyyy HH:mm:ss} Print: {document.GetFileName()}");
+                Console.WriteLine($"{DateTime.Now:dd.MM.yyyy HH:mm:ss} Print: {doc.GetFileName()}");
                 PrintCounter++;
             }
         }
-       
 
         public void Scan(out IDocument doc, IDocument.FormatType formatType = IDocument.FormatType.PDF)
         {
@@ -55,7 +53,6 @@ namespace Zadanie1
                 base.PowerOn();
             }
         }
-
         public void ScanAndPrint()
         {
             if (GetState() == IDevice.State.on)
@@ -65,4 +62,36 @@ namespace Zadanie1
             }
         }
     }
-}
+        namespace Zadanie22 { 
+
+        class MultiFunctionalDevice : Copier, IFax
+    {
+        public int FaxCounter { get; set; }
+
+        public void Fax(in IDocument doc)
+        {
+            if (state == IDevice.State.on)
+            {
+                DateTime date = DateTime.Now;
+                FaxCounter++;
+                Console.WriteLine($"{date} Fax: {doc.GetFileName()}");
+            }
+        }
+
+        public void ScanPrintFax()
+        {
+            if (state == IDevice.State.on)
+            {
+                Scan(out IDocument doc, IDocument.FormatType.JPG);
+                Print(doc);
+                Fax(doc);
+            }
+        }
+
+            public void Send(in IDocument doc)
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+    }
